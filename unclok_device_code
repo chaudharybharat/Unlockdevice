@@ -25,5 +25,38 @@
             wl.release();
             wl_cpu.release();
         }
+
+
+// react_native unlock
+
+import RNUnlockDevice from 'react-native-unlock-device';
+import KeepAwake from 'react-native-keep-awake';
+
+ //RNUnlockDevice.unlock();
+   // KeepAwake.activate();
+
+=>react-native sound packeage
+
+const Sound = require('react-native-sound')
+Sound.setCategory('Playback', true);
+ringSound = new Sound('ring.mp3', Sound.MAIN_BUNDLE, (error) => {
+    if (error) {
+        return;
+    }
+})
+Sound.setCategory('Playback', true);
+    ringSound.stop();
+    ringSound.pause();
+    ringSound = new Sound('ring.mp3', Sound.MAIN_BUNDLE, (error) => {
+        if (error){
+            return;
+        }else{
+            Vibration.vibrate(10000);
+            ringSound.play();
+        }
+    });
+
+
+
   
 
