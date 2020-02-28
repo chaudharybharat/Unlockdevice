@@ -1,0 +1,14 @@
+  
+=>if you want to unlock your devicve comming notifcation put this code in activity class inside
+
+ getWindow().addFlags(
+     WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED +
+      WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED +
+      WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD +
+      WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+
+  getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+  getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+  getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
