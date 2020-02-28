@@ -12,3 +12,18 @@
   getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+   if you need to only light blinking 
+
+ PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        boolean isScreenOn = pm.isScreenOn();
+        Log.e("test","isScreenOn"+isScreenOn);
+        if(!isScreenOn){
+            PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK |PowerManager.ACQUIRE_CAUSES_WAKEUP |PowerManager.ON_AFTER_RELEASE,"com.mdcandroid:MyLock");
+            wl.acquire(10000); PowerManager.WakeLock wl_cpu = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "com.mdcandroid:MyCpuLock");
+            wl_cpu.acquire(10000);
+            wl.release();
+            wl_cpu.release();
+        }
+  
+
